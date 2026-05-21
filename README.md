@@ -1,5 +1,7 @@
 # CCTV 차종분류 파이프라인
 
+![CI](https://github.com/zodia8393/cctv-vehicle-classifier/actions/workflows/ci.yml/badge.svg)
+
 CCTV 영상에서 추출한 차종 crop 이미지를 13종 차종 분류로 자동 라벨링하는 파이프라인.
 
 ## 디렉터리 구조
