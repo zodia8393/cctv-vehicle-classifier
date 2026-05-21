@@ -1,4 +1,41 @@
 venv/
 __pycache__/
 *.pyc
+*.pyo
+
+# Logs
 logs/*.log
+*.log
+
+# Data (large files)
+data/
+*.parquet
+*.csv.gz
+*.pkl
+*.pt
+*.pth
+*.onnx
+*.h5
+*.npz
+*.npy
+*.zip
+*.tar.gz
+
+# Models
+models/
+weights/
+*.engine
+
+# Secrets
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Archive
+src/_archive/

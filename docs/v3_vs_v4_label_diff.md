@@ -54,7 +54,7 @@
 
 - **정본 = `final_labels_v4.csv`** (현재 시점)
 - **단**, T3/T8 통합이 의도된 결정인지 사용자 확인 후 v4를 확정 정본으로 못박을 것
-- v3 이전 파일은 [`_archive_v1_v3/`](../../CCTV차종분류_output/_archive_v1_v3/)로 격리됨
+- v3 이전 파일은 [`_archive_v1_v3/`](../../CCTV차종분류/output/_archive_v1_v3/)로 격리됨
 
 ## 사후 액션
 

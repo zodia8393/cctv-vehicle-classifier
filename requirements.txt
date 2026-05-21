@@ -1,0 +1,10 @@
+# CCTV 차종분류 파이프라인 의존성
+# 회의 [meeting_20260407_workspace_진단.md] 액션 H2
+# 생성: 2026-04-07 (import 분석 기반)
+
+opencv-python>=4.8,<5
+numpy>=1.24,<3
+Pillow>=10,<12
+torch>=2.0,<3
+tqdm>=4.65,<5
+transformers>=4.30,<5
