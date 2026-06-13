@@ -1,6 +1,6 @@
 """ONNX export — 한 번만 실행, 이후 .onnx 파일 재사용.
 
-생성 위치: /workspace/prj_cctv/output/_models_preserved/onnx/
+생성 위치: /workspace/prj/cctv/output/_models_preserved/onnx/
 - yolo11n.onnx         (detector, 640px)
 - round_12_v8lb.onnx   (classifier v8lb, 128px)
 - round_15_mnv4.onnx   (classifier MNv4 R15, 192px)
@@ -17,11 +17,11 @@ from pathlib import Path
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
-ONNX_DIR = Path("/workspace/prj_cctv/output/_models_preserved/onnx")
+ONNX_DIR = Path("/workspace/prj/cctv/output/_models_preserved/onnx")
 ONNX_DIR.mkdir(parents=True, exist_ok=True)
 
-MODEL_DIR = Path("/workspace/prj_cctv/pipeline/data/models")
-PRESERVED = Path("/workspace/prj_cctv/output/_models_preserved")
+MODEL_DIR = Path("/workspace/prj/cctv/pipeline/data/models")
+PRESERVED = Path("/workspace/prj/cctv/output/_models_preserved")
 
 
 def export_ultralytics(src_pt: Path, dst_onnx: Path, imgsz: int = 128):

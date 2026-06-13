@@ -33,7 +33,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 
 
 # ── 경로 ──────────────────────────────────────────────────────────────
-LABELING_DIR = Path("/workspace/prj_cctv/pipeline/data/labeling_v1")
+LABELING_DIR = Path("/workspace/prj/cctv/pipeline/data/labeling_v1")
 DEFAULT_META = LABELING_DIR / "crops_meta.jsonl"
 DEFAULT_OUTPUT = LABELING_DIR / "crops.parquet"
 

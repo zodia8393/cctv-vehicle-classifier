@@ -37,10 +37,10 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 
 
 # ── 경로 ──────────────────────────────────────────────────────────────
-LABELING_DIR = Path("/workspace/prj_cctv/pipeline/data/labeling_v1")
+LABELING_DIR = Path("/workspace/prj/cctv/pipeline/data/labeling_v1")
 DEFAULT_PARQUET = LABELING_DIR / "crops.parquet"
 BATCH_DIR = LABELING_DIR / "claude_batches"
-ANCHOR_SOURCE = Path("/workspace/prj_cctv/pipeline/data/final_dataset/train")  # GT 학습 데이터
+ANCHOR_SOURCE = Path("/workspace/prj/cctv/pipeline/data/final_dataset/train")  # GT 학습 데이터
 
 
 # ── Few-shot 앵커 선정 (final_dataset에서 GT 가져오기) ──────────────

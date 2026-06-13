@@ -297,7 +297,7 @@ def process_video(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("video")
-    parser.add_argument("--out-csv", default="/workspace/prj_cctv/output/video_counts.csv")
+    parser.add_argument("--out-csv", default="/workspace/prj/cctv/output/video_counts.csv")
     parser.add_argument("--out-json", default=None)
     parser.add_argument("--best-n", type=int, default=3)
     parser.add_argument("--min-trajectory", type=int, default=80)

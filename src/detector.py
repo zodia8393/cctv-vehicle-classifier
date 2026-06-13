@@ -5,6 +5,7 @@ COCO 클래스 중 차량(car, motorcycle, bus, truck)만 필터.
 
 환경변수:
   USE_INT8_DETECTOR=1 — ONNX INT8 양자화 모델 사용 (~1.5× 가속)
+  DET_INCLUDE_PERSON=1 — person(0)을 추가 반환(T8 보행자 경로용, 차량 트래킹에서는 분리)
 """
 
 from __future__ import annotations
@@ -31,6 +32,7 @@ class VehicleDetector:
     def __init__(self, model_path: str | None = None, conf: float | None = None,
                  imgsz: int | None = None):
         self.conf       = conf   or config.DET_CONF
+        self.include_person = os.environ.get("DET_INCLUDE_PERSON", "0") == "1"
         # DET_IMGSZ 환경변수로 해상도 오버라이드 가능 (야간/저조도 영상에 고해상도 실험 용)
         env_imgsz       = os.environ.get("DET_IMGSZ")
         self.imgsz      = imgsz or (int(env_imgsz) if env_imgsz else config.DET_IMG)
@@ -64,6 +66,12 @@ class VehicleDetector:
             logger.warning("%s missing, falling back to %s", self.model_path, config.YOLO_FALLBACK)
             self.model_path = config.YOLO_FALLBACK
         self.model = YOLO(self.model_path)
+
+    def _allowed_class_ids(self) -> set[int]:
+        allowed = set(config.COCO_VEHICLE_IDS)
+        if self.include_person:
+            allowed.add(0)
+        return allowed
 
     def _letterbox(self, img: np.ndarray, new_shape: int = 640):
         """YOLO 표준 letterbox — aspect ratio 보존 resize + pad."""
@@ -168,9 +176,10 @@ class VehicleDetector:
         class_ids = class_scores.argmax(axis=1)
         confs = class_scores.max(axis=1)
         # 차량 클래스 필터 + conf 필터 (적응형)
+        allowed = self._allowed_class_ids()
         mask = confs >= conf_th
         for cid in range(80):
-            if cid not in config.COCO_VEHICLE_IDS:
+            if cid not in allowed:
                 mask &= (class_ids != cid)
         boxes = boxes[mask]
         confs = confs[mask]
@@ -208,12 +217,13 @@ class VehicleDetector:
         results = self.model.predict(frame_proc, conf=adaptive_conf, imgsz=self.imgsz,
                                      verbose=False, device="cpu")
         detections = []
+        allowed = self._allowed_class_ids()
         for r in results:
             if r.boxes is None:
                 continue
             for box in r.boxes:
                 cls_id = int(box.cls.item())
-                if cls_id not in config.COCO_VEHICLE_IDS:
+                if cls_id not in allowed:
                     continue
                 x1, y1, x2, y2 = box.xyxy[0].tolist()
                 detections.append((x1, y1, x2, y2, float(box.conf.item()), cls_id))

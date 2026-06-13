@@ -11,7 +11,7 @@ import streamlit as st
 import pyarrow.parquet as pq
 import pyarrow as pa
 
-LABELING_DIR = Path("/workspace/prj_cctv/pipeline/data/labeling_v1")
+LABELING_DIR = Path("/workspace/prj/cctv/pipeline/data/labeling_v1")
 PARQUET_PATH = LABELING_DIR / "crops.parquet"
 REF_DIR = Path(
     "/workspace/AI교통량조사/docs/차종분류_참고자료"

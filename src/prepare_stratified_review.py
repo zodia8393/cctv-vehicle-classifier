@@ -10,7 +10,7 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 
-PARQUET = Path("/workspace/prj_cctv/pipeline/data/labeling_v1/crops.parquet")
+PARQUET = Path("/workspace/prj/cctv/pipeline/data/labeling_v1/crops.parquet")
 
 TARGET_CLASSES = {
     "T2": 100,

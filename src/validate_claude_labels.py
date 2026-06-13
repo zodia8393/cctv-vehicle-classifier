@@ -28,9 +28,9 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 
 
 # ── 경로 ──────────────────────────────────────────────────────────────
-LABELING_DIR = Path("/workspace/prj_cctv/pipeline/data/labeling_v1")
+LABELING_DIR = Path("/workspace/prj/cctv/pipeline/data/labeling_v1")
 PARQUET_PATH = LABELING_DIR / "crops.parquet"
-HOLDOUT_DIR = Path("/workspace/prj_cctv/pipeline/data/holdout_gt_v3")
+HOLDOUT_DIR = Path("/workspace/prj/cctv/pipeline/data/holdout_gt_v3")
 
 
 # ── 게이트 임계값 ─────────────────────────────────────────────────────

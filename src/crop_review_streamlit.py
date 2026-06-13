@@ -28,7 +28,7 @@ import streamlit as st
 
 
 # ── 경로 ──────────────────────────────────────────────────────────────
-LABELING_DIR = Path("/workspace/prj_cctv/pipeline/data/labeling_v1")
+LABELING_DIR = Path("/workspace/prj/cctv/pipeline/data/labeling_v1")
 PARQUET_PATH = LABELING_DIR / "crops.parquet"
 
 CLASSES = [

@@ -40,7 +40,7 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 VIDEO_ROOT = Path("/mnt/Expansion/영상/220603_고속도로(경동)")
-OUT_ROOT = Path("/workspace/prj_cctv/output/batch_all_ic")
+OUT_ROOT = Path("/workspace/prj/cctv/output/batch_all_ic")
 OUT_ROOT.mkdir(parents=True, exist_ok=True)
 
 # 경동 실무 기대 분포

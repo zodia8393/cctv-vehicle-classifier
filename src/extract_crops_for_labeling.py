@@ -10,7 +10,7 @@
   - 분류는 안 함 (current_class/conf만 Triple V2로 기록)
 
 출력:
-  /workspace/prj_cctv/output/labeling/
+  /workspace/prj/cctv/output/labeling/
     crops/<ic>/<video>_t<tid>_f<frame>.jpg
     crops_meta.jsonl              # 크롭별 메타정보
     extraction_summary.json       # 통계
@@ -47,8 +47,8 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 
 # ── 경로 ──────────────────────────────────────────────────────────────
 VIDEO_ROOT = Path("/mnt/Expansion/영상/220603_고속도로(경동)")
-OUTPUT_DIR = Path("/workspace/prj_cctv/output/labeling")
-HOLDOUT_DIR = Path("/workspace/prj_cctv/pipeline/data/holdout_gt_v3")
+OUTPUT_DIR = Path("/workspace/prj/cctv/output/labeling")
+HOLDOUT_DIR = Path("/workspace/prj/cctv/pipeline/data/holdout_gt_v3")
 
 
 # ── 봉인셋 익스클루드 ────────────────────────────────────────────────

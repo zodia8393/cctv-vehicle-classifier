@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 # ── 경로 ────────────────────────────────────────────────────────────
-ROOT_DIR          = Path("/workspace/prj_cctv")
+ROOT_DIR          = Path("/workspace/prj/cctv")
 PIPELINE_DIR      = ROOT_DIR / "pipeline"
 DATA_DIR          = PIPELINE_DIR / "data"
 OUTPUT_DIR        = ROOT_DIR / "output"
