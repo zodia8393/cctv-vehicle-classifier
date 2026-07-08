@@ -119,7 +119,7 @@ if __name__ == "__main__":
     p.add_argument("--base-weights", required=True)
     p.add_argument("--manifest", default=str(config.GT_DIR / "manifest.jsonl"))
     p.add_argument("--sealed-test",
-                   default="/workspace/prj/cctv/pipeline/data/holdout_gt_v3/main_test_v3_manifest.jsonl")
+                   default="/workspace/prj/AI기반 교통상황 대응 기술 개발 연구/pipeline/data/holdout_gt_v3/main_test_v3_manifest.jsonl")
     p.add_argument("--out-dir", required=True)
     p.add_argument("--epochs", type=int, default=8)
     p.add_argument("--lr", type=float, default=1e-5)

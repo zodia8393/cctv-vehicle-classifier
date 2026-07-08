@@ -5,11 +5,13 @@
 수동 검수 기반 고순도 데이터로 처음부터 재구축하는 설계의 중심 설정.
 """
 
+import os
 from pathlib import Path
 
 
 # ── 경로 ────────────────────────────────────────────────────────────
-ROOT_DIR          = Path("/workspace/prj/cctv")
+DEFAULT_PROJECT_ROOT = "/workspace/prj/AI기반 교통상황 대응 기술 개발 연구"
+ROOT_DIR          = Path(os.environ.get("CCTV_PRJ_ROOT", DEFAULT_PROJECT_ROOT))
 PIPELINE_DIR      = ROOT_DIR / "pipeline"
 DATA_DIR          = PIPELINE_DIR / "data"
 OUTPUT_DIR        = ROOT_DIR / "output"

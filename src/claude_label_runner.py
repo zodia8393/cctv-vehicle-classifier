@@ -36,7 +36,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 
 
 # ── 경로 ──────────────────────────────────────────────────────────────
-LABELING_DIR = Path("/workspace/prj/cctv/pipeline/data/labeling_v1")
+LABELING_DIR = Path("/workspace/prj/AI기반 교통상황 대응 기술 개발 연구/pipeline/data/labeling_v1")
 BATCH_DIR = LABELING_DIR / "claude_batches"
 BATCH_INDEX = BATCH_DIR / "batch_index.json"
 PARQUET_PATH = LABELING_DIR / "crops.parquet"
