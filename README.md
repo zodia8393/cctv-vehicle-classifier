@@ -4,7 +4,17 @@
 
 이 디렉터리는 상위 작업공간과 분리된 독립 Git 저장소이며 remote는 `cctv-vehicle-classifier`다. 공통 평가 산출물 기본 위치 `../output/`은 이 저장소 밖이다.
 
-## 구조
+## 코드 읽는 순서
+
+1. [분류 클래스·경로 설정](src/config.py)에서 7개 T-code와 입력 조건을 확인합니다.
+2. [GT 구성](src/gt_builder.py)에서 영상 단위 분할·평가 자료 준비 과정을 봅니다.
+3. [MobileNetV4 학습](src/train_mnv4_full.py)과 [추가 조정](src/train_mnv4_refit.py)을 읽습니다.
+4. [holdout 평가](src/eval_holdout_v2.py)와 [중단 조건](src/stop_conditions.py)에서 결과 판단 기준을 확인합니다.
+5. [웹의 학습·오류 분석](https://zodia8393.github.io/career-portfolio/cctv/)에서 수행 범위와 별도 평가 JSON을 확인합니다.
+
+MobileNetV4 학습 기록과 EnsembleClassifier의 별도 평가는 동일 모델의 개선 전후 비교가 아닙니다. 외부 데이터·가중치 없이 전체 학습·평가를 재현할 수 있다고 주장하지 않습니다. 이 저장소의 CI 정적 검사는 모델 성능 검증과 별개입니다.
+
+### 디렉터리 안내
 
 | 경로 | 역할 |
 |---|---|
@@ -24,13 +34,14 @@
 프로젝트 루트에서 실행한다.
 
 ~~~bash
-cd "/workspace/prj/work/AI기반 교통상황 대응 기술 개발 연구/pipeline"
+git clone https://github.com/zodia8393/cctv-vehicle-classifier.git
+cd cctv-vehicle-classifier
 python3 -m pip install -r requirements.txt
 ~~~
 
 `requirements.txt`는 공통 의존성이다. 선택한 script에 따라 `pyarrow`, `supervision`, `streamlit`, `ultralytics` 또는 `timm`이 추가로 필요할 수 있으므로 실제 import error와 해당 script의 `--help`를 기준으로 설치한다.
 
-기본 project root는 `/workspace/prj/work/AI기반 교통상황 대응 기술 개발 연구`다. 다른 checkout을 쓸 때만 환경변수 `CCTV_PRJ_ROOT`를 지정한다.
+경로 설정은 [src/config.py](src/config.py)를 먼저 확인한다. 기존 작업환경의 절대경로를 그대로 사용하지 말고, 별도로 준비한 데이터·모델 경로에 맞게 `CCTV_PRJ_ROOT`를 지정한다.
 
 ## 작업 흐름
 
